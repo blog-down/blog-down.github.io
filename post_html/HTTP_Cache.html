@@ -16,7 +16,13 @@
 <pre><code>协议、协议版本、域、端口、路径、请求头字段、Cookie
 </code></pre><p>上面列出的是常用的Key可能的关键字，但是每个客户端的Key都是由自己决定的，在缓存协商中，服务器不会告诉客户端如何去匹配缓存。不同的浏览器/CDN/代理服务器可能会使用不同的Key。</p>
 <h2 id="3.-http-1.0缓存机制"><a name="3.-http-1.0缓存机制" href="#3.-http-1.0缓存机制"></a>3. HTTP 1.0缓存机制</h2>
-<p>HTTP 1.0时代的缓存特别简单，它定义了两个头字段来进行缓存协商。<br><strong> Pragma </strong>: 这个字段只有一个值（no-cache）；当使用此字段时，表示禁用缓存。<br><strong> Expires </strong>: 这个字段也只有一个值，缓存过期时间，它是一个绝对的时间值，例如 Wed, 31 May 2017 03:21:09 GMT ，当系统时间大于这个时间，则缓存过期了，不能使用。</p>
+<p>HTTP 1.0时代的缓存特别简单，它定义了两个头字段来进行缓存协商。</p>
+<center><br><img src="https://blog-down.github.io/post_md/TCP_IP/HTTP_Cache/http1.0_cache.png" style="width:600px;" /><br><text style="font-size:x-small">图 3.1 HTTP1.0缓存机制</text><br></center>
+
+<p><strong> Pragma </strong>: 这个字段只有一个值（no-cache）；当使用此字段时，表示禁用缓存。<br><strong> Expires </strong>: 这个字段也只有一个值，缓存过期时间，它是一个绝对的时间值，例如 Wed, 31 May 2017 03:21:09 GMT ，当系统时间大于这个时间，则缓存过期了，不能使用。</p>
+<p><strong> 场景 </strong>：</p>
+<ol>
+<li>不使用缓存，则定义Pragma:no-cache。</li><li>使用缓存，则定义Expires: [date值]。</li></ol>
 <h2 id="4.-http-1.1缓存机制"><a name="4.-http-1.1缓存机制" href="#4.-http-1.1缓存机制"></a>4. HTTP 1.1缓存机制</h2>
 <h2 id="5.-http-1.0/1.1-混合使用缓存头"><a name="5.-http-1.0/1.1-混合使用缓存头" href="#5.-http-1.0/1.1-混合使用缓存头"></a>5. HTTP 1.0/1.1 混合使用缓存头</h2>
 <h2 id="6.-其它"><a name="6.-其它" href="#6.-其它"></a>6. 其它</h2>

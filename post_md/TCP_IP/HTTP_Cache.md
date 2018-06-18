@@ -33,15 +33,21 @@ Key通常是由一系列关键字组成的字符串，主要包括：
 上面列出的是常用的Key可能的关键字，但是每个客户端的Key都是由自己决定的，在缓存协商中，服务器不会告诉客户端如何去匹配缓存。不同的浏览器/CDN/代理服务器可能会使用不同的Key。
 ## 3. HTTP 1.0缓存机制
 HTTP 1.0时代的缓存特别简单，它定义了两个头字段来进行缓存协商。
+
+<center>
+<img src="https://blog-down.github.io/post_md/TCP_IP/HTTP_Cache/http1.0_cache.png" style="width:600px;" />
+<text style="font-size:x-small">图 3.1 HTTP1.0缓存机制</text>
+</center>
+
 ** Pragma **: 这个字段只有一个值（no-cache）；当使用此字段时，表示禁用缓存。
 ** Expires **: 这个字段也只有一个值，缓存过期时间，它是一个绝对的时间值，例如 Wed, 31 May 2017 03:21:09 GMT ，当系统时间大于这个时间，则缓存过期了，不能使用。
 
 ** 场景 **：
-1. 不使用缓存，则定义Pragma:no-cache。
-2. 使用缓存，则定义Expires: [date值]。
-
+1. 不使用缓存，服务器则定义Pragma:no-cache；客户端发起请求，但不使用公用缓存，则客户端请求头定义Pragma:no-cache。
+2. 使用缓存，服务器响应则定义Expires: [date值]。
 
 ## 4. HTTP 1.1缓存机制
+
 
 ## 5. HTTP 1.0/1.1 混合使用缓存头
 
